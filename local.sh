@@ -603,7 +603,7 @@ if [[ "$(nproc)" -le "12" ]];then
   sleep 5
   if [[ `echo "${PATH}" |grep -c "Windows"` -ge '1' ]]; then
     ECHOG "WSL临时路径编译中"
-    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j$(nproc) |& tee ${HOME_PATH}/build_logo/build.log 2>&1
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(nproc) |& tee ${HOME_PATH}/build_logo/build.log 2>&1
   else
      make V=s -j$(nproc) |& tee ${HOME_PATH}/build_logo/build.log 2>&1
   fi
@@ -612,9 +612,9 @@ else
   sleep 5
   if [[ `echo "${PATH}" |grep -c "Windows"` -ge '1' ]]; then
     ECHOY "WSL临时路径编译中,请耐心等候..."
-    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make V=s -j16 |& tee ${HOME_PATH}/build_logo/build.log 2>&1
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j16 |& tee ${HOME_PATH}/build_logo/build.log 2>&1
   else
-     make V=s -j16 |& tee ${HOME_PATH}/build_logo/build.log 2>&1
+     make -j16 |& tee ${HOME_PATH}/build_logo/build.log 2>&1
   fi
 fi
 
